@@ -11,7 +11,6 @@ set lazyredraw
 syntax enable                   " Syntax highlighting
 set t_Co=256                    " Color set
 set background=dark
-set encoding=utf-8
 
 " UI
 set hlsearch                    " Highlight search results
@@ -30,6 +29,7 @@ set showmode
 set wildmenu
 
 " Text options
+set encoding=utf-8
 set nowrap                      " Don't wrap lines
 set autoindent                  " 
 set smartindent                 " 
@@ -40,6 +40,7 @@ set shiftwidth=4                "
 set softtabstop=4               " 
 set foldmethod=indent           " enable folding
 set foldlevelstart=42           " folds open when start
+
 
 " Tab keybindings
 nnoremap <silent> <C-Right> :tabnext<CR>
