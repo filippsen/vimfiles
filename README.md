@@ -1,0 +1,4 @@
+vimfiles
+========
+
+Personal Vim configuration
