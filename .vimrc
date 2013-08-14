@@ -61,3 +61,6 @@ let g:clang_hl_errors = 1
 " Close scratch area after completion is done
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+" Disable expand tab for working with Makefiles
+autocmd FileType make setlocal noexpandtab
