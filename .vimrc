@@ -13,6 +13,7 @@ set t_Co=256                    " Color set
 set background=dark
 
 " UI
+set cmdheight=2                 " Better for long messages
 set hlsearch                    " Highlight search results
 set incsearch                   " Search as you type
 set ignorecase                  " ignore case sensitivity...
