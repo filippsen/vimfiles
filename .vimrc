@@ -1,3 +1,4 @@
+
 " General
 set nocompatible
 set noswapfile                  " Do not want swap and backups
@@ -28,6 +29,12 @@ set number
 set showcmd                     " Show cmd in status bar
 set showmode
 set wildmenu
+set laststatus =2                " Status line
+set statusline=%<%f%m\ \[%{&ff}:%{&fenc}:%Y]\ 
+set statusline+=%{getcwd()}
+set statusline+=\ \ \ \ \ \ \ \[%{strftime('%Y/%b/%d\ %a\ %I:%M\ %p')}\]\ %=\ 
+set statusline+=Line:%l\/%L\ Column:%c%V\%P
+
 
 " Text options
 set encoding=utf-8
