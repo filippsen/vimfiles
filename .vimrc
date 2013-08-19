@@ -32,8 +32,8 @@ set wildmenu
 set laststatus =2                " Status line
 set statusline=%<%f%m\ \[%{&ff}:%{&fenc}:%Y]\ 
 set statusline+=%{getcwd()}
-set statusline+=\ \ \ \ \ \ \ \[%{strftime('%Y/%b/%d\ %a\ %I:%M\ %p')}\]\ %=\ 
-set statusline+=Line:%l\/%L\ Column:%c%V\%P
+set statusline+=%=\ \ \ \ \ \ \ \ \[%{strftime('%Y/%b/%d\ %a\ %I:%M\ %p')}\]\ %=\ 
+set statusline+=Line:%l\/%L\ Column:%c%V\ %P
 
 
 " Text options
@@ -65,7 +65,7 @@ let g:clang_complete_auto = 1
 let g:clang_use_library = 1 
 let g:clang_debug = 1
 let g:clang_hl_errors = 1
-
+ 
 " Close scratch area after completion is done
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
