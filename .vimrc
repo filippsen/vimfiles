@@ -32,8 +32,8 @@ set wildmenu
 set laststatus =2                " Status line
 set statusline=%<%f%m\ \[%{&ff}:%{&fenc}:%Y]\ 
 set statusline+=%{getcwd()}
-set statusline+=%=\ \ \ \ \ \ \ \ \[%{strftime('%Y/%b/%d\ %a\ %I:%M\ %p')}\]\ %=\ 
-set statusline+=Line:%l\/%L\ Column:%c%V\ %P
+set statusline+=%=\[%{strftime('%Y/%b/%d\ %a\ %I:%M\ %p')}\]\ %=\ 
+set statusline+=Line:%l\/%L\ Column:%c%V\ %=\ %P
 
 
 " Text options
