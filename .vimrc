@@ -79,6 +79,7 @@ vnoremap <Space> zf
 
 " Make keybindings
 nnoremap <F5> :!make run<CR>
+nnoremap <F6> :make clean; make<CR>
 
 " YCM keybindings
 nnoremap <F7> :YcmForceCompileAndDiagnostics<CR>
