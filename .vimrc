@@ -10,8 +10,10 @@ set lazyredraw
 
 " Color theme and syntax hightlighting
 syntax enable                   " Syntax highlighting
-set t_Co=256                    " Color set
-set background=dark
+if !has('gui_running')
+    set t_Co=256                    " Color set
+    set background=dark
+endif
 
 " UI
 set cmdheight=2                 " Better for long messages
@@ -90,5 +92,4 @@ autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " Disable expand tab for working with Makefiles
 autocmd FileType make setlocal noexpandtab
-
 
