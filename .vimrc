@@ -60,15 +60,21 @@ nnoremap <silent> <C-Down> :tabclose<CR>
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
-" clang_complete plugin
-let g:clang_complete_auto = 1
-let g:clang_use_library = 1 
-let g:clang_debug = 1
-let g:clang_hl_errors = 1
- 
 " Close scratch area after completion is done
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " Disable expand tab for working with Makefiles
 autocmd FileType make setlocal noexpandtab
+
+"Vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+" My Bundles:
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
+
+filetype plugin indent on
