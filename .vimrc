@@ -78,7 +78,7 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
 " Make keybindings
-nnoremap <F5> :make run<CR>
+nnoremap <F5> :!make run<CR>
 
 " YCM keybindings
 nnoremap <F7> :YcmForceCompileAndDiagnostics<CR>
