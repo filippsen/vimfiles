@@ -87,6 +87,9 @@ nnoremap <F7> :YcmForceCompileAndDiagnostics<CR>
 " NERDTree keybindings
 nnoremap <F4> :NERDTreeTabsToggle<CR>
 
+" Search keybindings
+nnoremap <F3> :grep --include=*.{c,cpp,h} -nRHI "
+
 " Close scratch area after completion is done
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
