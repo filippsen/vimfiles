@@ -1,3 +1,9 @@
+let s:IsUbuntu = -1
+if (match(system("cat /etc/issue"), "Ubuntu") != -1)
+    let s:IsUbuntu=1
+else
+    let s:IsUbuntu=0
+endif
 
 " General
 set nocompatible
@@ -5,7 +11,7 @@ set noswapfile                  " Do not want swap and backups
 set nobackup                    " 
 set history=100
 set undolevels=1000
-set noerrorbells
+set noerrorbells visualbell t_vb=
 set lazyredraw
 
 " Color theme and syntax hightlighting
@@ -53,6 +59,7 @@ set softtabstop=4               "
 set foldmethod=indent           " enable folding
 set foldlevelstart=42           " folds open when start
 
+
 "Vundle
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -60,7 +67,27 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My Bundles:
-Bundle 'Valloric/YouCompleteMe'
+if (s:IsUbuntu)
+    let g:clang_use_library=1
+    let g:clang_library_path = '/usr/local/lib/'
+    let g:clang_auto_select=1
+    let g:clang_close_preview=1
+    let g:clang_user_options = '-std=c++11 -stdlib=libc++'
+    let g:clang_jumpto_declaration_key='<C-]>'
+    let g:clang_jumpto_back_key='<C-T>'
+    set conceallevel=2
+    set concealcursor=inv
+    let g:clang_snippets=1
+    let g:clang_conceal_snippets=1
+    let g:clang_snippets_engine='clang_complete'
+    set completeopt=menu,menuone
+    set pumheight=20
+    let g:clang_trailing_placeholder=1
+    let g:clang_sort_algo='alpha'
+else
+    "Bundle 'Valloric/YouCompleteMe'
+endif
+
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -81,8 +108,14 @@ vnoremap <Space> zf
 nnoremap <F5> :!make run<CR>
 nnoremap <F6> :make clean; make<CR>
 
-" YCM keybindings
-nnoremap <F7> :YcmForceCompileAndDiagnostics<CR>
+" Syntax validation
+if (s:IsUbuntu)
+    " Regular syntastic
+    nnoremap <F7> :SyntasticCheck<CR>
+else
+    " Syntastic via YCM keybindings
+    nnoremap <F7> :YcmForceCompileAndDiagnostics<CR>
+endif
 
 " NERDTree keybindings
 nnoremap <F4> :NERDTreeTabsToggle<CR>
