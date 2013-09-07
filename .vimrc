@@ -123,6 +123,10 @@ nnoremap <F4> :NERDTreeTabsToggle<CR>
 " Search keybindings
 nnoremap <F3> :grep --include=*.{c,cpp,h} -nRHI "
 
+" clang-format keybindings
+map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.4.py<CR>
+imap <C-K> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.4.py<CR>i
+
 " Close scratch area after completion is done
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
