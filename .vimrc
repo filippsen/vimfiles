@@ -85,7 +85,7 @@ if (s:IsUbuntu)
     let g:clang_trailing_placeholder=1
     let g:clang_sort_algo='alpha'
 else
-    "Bundle 'Valloric/YouCompleteMe'
+    Bundle 'Valloric/YouCompleteMe'
 endif
 
 Bundle 'scrooloose/syntastic'
