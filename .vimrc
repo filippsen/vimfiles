@@ -13,6 +13,8 @@ set history=100
 set undolevels=1000
 set noerrorbells visualbell t_vb=
 set lazyredraw
+set clipboard+=unnamed          " Enable yank to clipboard. Not sure it is xplatform
+"set clipboard+=unnamedplus
 
 " Color theme and syntax hightlighting
 syntax enable                   " Syntax highlighting
@@ -91,14 +93,15 @@ endif
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'airblade/vim-gitgutter'
 
 filetype plugin indent on
 
 " Tab keybindings
-nnoremap <silent> <C-Right> :tabnext<CR>
-nnoremap <silent> <C-Left> :tabprevious<CR>
-nnoremap <silent> <C-Up> :tabnew<CR>
-nnoremap <silent> <C-Down> :tabclose<CR>
+nnoremap <silent> tn :tabnext<CR>
+nnoremap <silent> tp :tabprev<CR>
+nnoremap <silent> tc :tabnew<CR>
+nnoremap <silent> tx :tabclose<CR>
 
 " Folding keybindgins
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -124,8 +127,8 @@ nnoremap <F4> :NERDTreeTabsToggle<CR>
 nnoremap <F3> :grep --include=*.{c,cpp,h} -nRHI "
 
 " clang-format keybindings
-map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.4.py<CR>
-imap <C-K> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.4.py<CR>i
+map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.5.py<CR>
+imap <C-K> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.5.py<CR>i
 
 " Close scratch area after completion is done
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
@@ -133,4 +136,3 @@ autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " Disable expand tab for working with Makefiles
 autocmd FileType make setlocal noexpandtab
-
