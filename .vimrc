@@ -50,7 +50,7 @@ set statusline+=%*
 
 " Text options
 set encoding=utf-8
-set nowrap                      " Don't wrap lines
+set wrap                      " Don't wrap lines
 set autoindent                  " 
 set smartindent                 " 
 set expandtab                   " Use spaces
@@ -61,6 +61,8 @@ set softtabstop=4               "
 set foldmethod=indent           " enable folding
 set foldlevelstart=42           " folds open when start
 
+"Spellcheck
+"set spell spelllang=pt
 
 "Vundle
 filetype off
@@ -94,6 +96,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'godlygeek/tabular'
+Bundle 'plasticboy/vim-markdown'
 
 filetype plugin indent on
 
@@ -108,8 +112,8 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
 " Make keybindings
-nnoremap <F5> :!make run<CR>
-nnoremap <F6> :make clean; make<CR>
+nnoremap <F5> :make run DEBUG=1<CR>
+nnoremap <F6> :make clean; make DEBUG=1<CR>
 
 " Syntax validation
 if (s:IsUbuntu)
@@ -127,8 +131,8 @@ nnoremap <F4> :NERDTreeTabsToggle<CR>
 nnoremap <F3> :grep --include=*.{c,cpp,h} -nRHI "
 
 " clang-format keybindings
-map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.5.py<CR>
-imap <C-K> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.5.py<CR>i
+map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.4.py<CR>
+imap <C-K> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.4.py<CR>i
 
 " Close scratch area after completion is done
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
