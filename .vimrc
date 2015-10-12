@@ -60,6 +60,7 @@ set shiftwidth=4                "
 set softtabstop=4               " 
 set foldmethod=indent           " enable folding
 set foldlevelstart=42           " folds open when start
+"set textwidth=80
 
 "Spellcheck
 "set spell spelllang=pt
@@ -140,3 +141,4 @@ autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " Disable expand tab for working with Makefiles
 autocmd FileType make setlocal noexpandtab
+
